@@ -1,7 +1,7 @@
 # 🏥 Agenda Cirúrgica – Dashboard Hospitalar
 
 Dashboard interativo para visualização em tempo real da ocupação das salas cirúrgicas por setor, com destaque para horários livres, ocupados e períodos sem agendamento.
-
+<img src='/assets/agenda_cirurgica.jpg'>
 ## 🚀 Funcionalidades
 
 - 📅 Visualização da agenda diária de cirurgias por setor (UNA e UCB).
