@@ -1,0 +1,28 @@
+networks:
+  gestaoavista_net:
+    external: true
+
+volumes:
+  gestao_agenda:
+    driver: local
+services:
+  gestao_agenda:
+    image: gestao_agenda:v1
+    container_name: gestao_agenda
+    build:
+      context: .
+    restart: always
+    ports:
+      - '6011:6011' # porta do host:porta interna
+    env_file:
+      - .env
+    command: uwsgi --http 0.0.0.0:6011 --module app:server --master --processes 4 --threads 2 --max-requests 1000 --harakiri 60
+    deploy:
+      resources:
+        limits:
+          memory: 512M # Limite máximo de memória
+          cpus: "0.5" # Limite de CPU (metade de um núcleo)
+        reservations:
+          memory: 256M # Reserva mínima de memória
+    networks:
+      - gestaoavista_net
